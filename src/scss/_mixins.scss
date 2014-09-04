@@ -1,0 +1,51 @@
+
+/* SVG Helpers
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+@function svg-sprite-get($map, $sprite) {
+	@each $s in nth($map, 2) {
+		$s-name: nth($s, 1);
+		@if $s-name == $sprite {
+		  @return $s;
+		}
+	}
+}
+
+@function svg-position($map, $sprite, $offset-x: 0, $offset-y: 0) {
+	@return svg-position-x($map, $sprite, $offset-x) svg-position-y($map, $sprite, $offset-y);
+}
+
+@function svg-position-x($map, $sprite, $offset-x: 0) {
+	$s: svg-sprite-get($map, $sprite);
+	// subtract svg padding from position
+	$s-position-x: nth($s, 4) - nth($s, 6);
+
+	@return round($s-position-x + $offset-x);
+}
+
+@function svg-position-y($map, $sprite, $offset-y: 0) {
+	$s: svg-sprite-get($map, $sprite);
+	// subtract svg padding from position
+	$s-position-y: nth($s, 5) - nth($s, 6);
+
+	@return round($s-position-y + $offset-y);
+}
+
+@function svg-url($map) {
+	// svg-sprite exports and url relative to project base, take it out
+	$relative-url: #{"url(../svgbundle/"}#{nth($map, 1)}#{")"};
+
+	// force svg to go through same asset pipeline as the rest
+	@return $relative-url;
+}
+
+@function svg-width($map, $sprite) {
+	$s: svg-sprite-get($map, $sprite);
+
+	@return nth($s, 2);
+}
+
+@function svg-height($map, $sprite) {
+	$s: svg-sprite-get($map, $sprite);
+
+	@return nth($s, 3);
+}

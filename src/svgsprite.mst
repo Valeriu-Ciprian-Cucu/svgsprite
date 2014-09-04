@@ -1,0 +1,11 @@
+${{prefix}}-map: (
+	"{{{ sprite }}}",
+	(
+		// sprite, width, height, position-x, position-y, padding
+		{{#svg}}
+		{{#selector}}({{name}}, {{width}}px, {{height}}px, {{positionX}}px, {{positionY}}px, {{padding}}px){{/selector}}{{^last}},
+		{{/last}}
+		{{/svg}}
+
+	)
+);

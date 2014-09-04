@@ -1,0 +1,21 @@
+{
+  "name": "svg-sprite-test",
+  "version": "0.1.0",
+  "description": "a test module for svg sprites",
+  "main": "index.js",
+  "scripts": {
+    "test": "none"
+  },
+  "keywords": [
+    "svg",
+    "sprit",
+    "test"
+  ],
+  "author": "Valerian Cucularu",
+  "license": "CC",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-compass": "^0.9.1",
+    "grunt-svg-sprite": "^0.3.2"
+  }
+}

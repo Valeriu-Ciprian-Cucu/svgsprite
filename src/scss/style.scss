@@ -1,0 +1,21 @@
+@import '_map';
+@import '_mixins';
+
+[class^="icon-"], [class*=" icon-"] {
+	background-image: svg-url($icon-map);
+	height: 30px;
+	width: 30px;
+}
+
+.icon-file {
+	background-position: svg-position($icon-map, file);
+}
+
+.icon-envelope {
+	background-position: svg-position($icon-map, envelope);
+}
+
+.box {
+	width: 35px;
+	height: 35px;
+}
